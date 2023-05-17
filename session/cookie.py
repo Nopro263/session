@@ -5,9 +5,11 @@ import string
 
 class Session:
     """Represents a Session-Manager, should be global"""
-    cookie_name = "SESSION"
-    http_only = True
-    _data = {}
+
+    def __init__(self, cookie_name="SESSION", http_only=True):
+        self.cookie_name = cookie_name
+        self.http_only = http_only
+        self._data = {}
 
     def require_auth(self, func):
         """Annotation to require a valid SESSION cookie"""
